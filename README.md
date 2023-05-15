@@ -1,4 +1,4 @@
-# Iniciar proyecto react-app
+# Iniciar proyecto react-app con PHP
 
 En la raíz o en dónde se descomprima el archivo cuando se descargue el código, ingresa al directorio mediante el siguiente comando.
 
@@ -17,9 +17,9 @@ Ejecuta la aplicación en modo de desarrollo.<br>
 
 La base de datos fue creada en MYSQL y montada de manera local en un servidor apache que proporciona el xampp, para poder que funcione primero tenemos que tener instalado xampp y seguir los siguientes pasos.<br />
 
-### 1. Copiar y pegar los archivos del directorio api de nuestro proyecto en dónde se encuentre instalado el xampp, en la carpeta htdocs.
+1. Copiar y pegar los archivos del directorio api en dónde se encuentra la lógica PHP de nuestro proyecto, en dónde se encuentre instalado el xampp en la carpeta htdocs.
 
-### 2. Después tenemos que ejecutar el script que se encuentra en la siguiente ruta del proyecto: api/esquema.sql en una hoja de SQL dentro de PHPMyAdmin, si todo sale sin errores ya tendríamos la conexión a la base de datos.
+2. Después tenemos que ejecutar el script que se encuentra en la siguiente ruta del proyecto: api/esquema.sql en una hoja de SQL dentro de PHPMyAdmin, si todo sale sin errores ya tendríamos la conexión a la base de datos.
 
 ## Iniciar aplicación
 
