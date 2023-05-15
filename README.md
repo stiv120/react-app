@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Iniciar proyecto react-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En la raíz o en dónde se descomprima el archivo cuando se descargue el código, ingresa al directorio mediante el siguiente comando.
 
-## Available Scripts
+```sh
+cd react-app
+```
 
-In the project directory, you can run:
+Dentro del proyecto, primero instalaremos las dependencias añadidas en el package json mediante el siguiente comando:
 
-### `npm start`
+### `npm i`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Instala el node_modules con las dependencias necesarias para la aplicación. <br>
+Ejecuta la aplicación en modo de desarrollo.<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Conectar a la base de datos.
 
-### `npm test`
+La base de datos fue creada en MYSQL y montada de manera local en un servidor apache que proporciona el xampp, para poder que funcione primero tenemos que tener instalado xampp y seguir los siguientes pasos.<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Copiar y pegar los archivos del directorio api de nuestro proyecto en dónde se encuentre instalado el xampp, en la carpeta htdocs.
 
-### `npm run build`
+### 2. Después tenemos que ejecutar el script que se encuentra en la siguiente ruta del proyecto: api/esquema.sql en una hoja de SQL dentro de PHPMyAdmin, si todo sale sin errores ya tendríamos la conexión a la base de datos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Iniciar aplicación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dentro del proyecto, puede ejecutar algunos comandos incorporados:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm start` or `yarn start`
+Ejecuta la aplicación en modo de desarrollo.
+Abre http://localhost:3000 para verla en el navegador.
 
-### `npm run eject`
+La página se recargará automáticamente si realizas cambios en el código.
+Verás los errores de compilación y las advertencias de lint en la consola.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `npm test` or `yarn test`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ejecuta el observador de pruebas en modo interactivo.<br>
+Por defecto, ejecuta las pruebas relacionadas con los archivos modificados desde la última confirmación.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[Más información sobre las pruebas](https://facebook.github.io/create-react-app/docs/running-tests)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `npm run build` or `yarn build`
 
-## Learn More
+Crea la aplicación para producción en la carpeta `build`.<br>
+Empaqueta correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+La compilación se minimiza y los nombres de archivo incluyen los hashes.<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Su aplicación está lista para ser implementada.
