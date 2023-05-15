@@ -11,7 +11,6 @@ Dentro del proyecto, primero instalaremos las dependencias añadidas en el packa
 ### `npm i`
 
 Instala el node_modules con las dependencias necesarias para la aplicación. <br>
-Ejecuta la aplicación en modo de desarrollo.<br>
 
 ## Conectar a la base de datos.
 
