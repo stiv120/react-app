@@ -25,7 +25,7 @@ $requestUri = $_SERVER['REQUEST_URI'];
 
 switch ($method) {
     case "GET":
-        if ($requestUri === '/react-app/api/historial/ver') {
+        if ($requestUri === 'api/historial/ver') {
             $result = $historial->getAllHistorial();
             echo json_encode($result);
         }
