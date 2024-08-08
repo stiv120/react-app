@@ -31,7 +31,7 @@ switch ($method) {
         }
         break;
     case "POST":
-        if ($requestUri === '/react-app/api/historial/guardar') {
+        if ($requestUri === '/api/historial/guardar') {
             $historial->insertHistorial();
             echo json_encode(["message" => "Datos guardados con éxito"]);
         }
