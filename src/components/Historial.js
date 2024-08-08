@@ -17,7 +17,7 @@ const Historial = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:80/react-app/api/historial/ver");
+      const response = await axios.get("https://tu-dominio.vercel.app/react-app/api/historial/ver");
       // Asegúrate de que response.data sea un arreglo
       if (Array.isArray(response.data)) {
         setHistorial(response.data);
