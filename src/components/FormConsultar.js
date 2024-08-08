@@ -96,7 +96,7 @@ const FormConsultar = () => {
     <div>
       <div className='container p-2'>
         <div className='row'>
-          <div className='col-md-4 mx-auto'>
+          <div className='col-md-5 mx-auto'>
             <div className="card card-body">
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group select-container">
