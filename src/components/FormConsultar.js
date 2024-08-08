@@ -71,7 +71,7 @@ const FormConsultar = () => {
           iconoClima: datos?.weather ? datos?.weather?.shift() : []
         });
 
-        const response = await axios.post("http://localhost:80/react-app/api/historial/guardar", JSON.stringify(datos), {
+        const response = await axios.post("https://react-app-stiven.vercel.app/react-app/api/historial/guardar", JSON.stringify(datos), {
           headers: {
             'Content-Type': 'application/json'
           }
