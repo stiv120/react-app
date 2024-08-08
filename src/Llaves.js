@@ -1,0 +1,1 @@
+export const llaveApi = '8c96237cc1a30796e33494179c4eefb1'
