@@ -23,6 +23,8 @@ $historial = new Historial($conn);
 $method = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
 
+echo $method;
+
 switch ($method) {
     case "GET":
         if ($requestUri === 'api/historial/ver') {
