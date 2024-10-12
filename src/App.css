@@ -1,0 +1,8 @@
+.leaflet-container {
+  width: 100vw !important;
+  height: 71vh !important;
+}
+.select-container {
+  position: relative;
+  z-index: 1000;
+}
