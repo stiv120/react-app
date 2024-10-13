@@ -18,7 +18,7 @@ const Historial = () => {
     setError(null);
     try {
       const response = await axios.get(
-        "https://stiv120.infinityfreeapp.com/api/historial/ver"
+        "/api/historial/ver"
       );
       console.log(response.data);
       if (Array.isArray(response.data)) {
