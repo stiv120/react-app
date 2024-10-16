@@ -1,6 +1,5 @@
-RewriteEngine On
-
-# Handle Front Controller...
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [L]
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*" Header set
+  Access-Control-Allow-Methods "GET, POST, OPTIONS" Header set
+  Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
