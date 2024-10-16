@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://stiv120.infinityfreeapp.com/api/$1"
-    }
-  ]
-}
