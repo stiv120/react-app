@@ -1,8 +1,9 @@
 <?php
+ob_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// CORS: debe ir antes de cualquier salida
+// CORS: primeros headers, siempre
 header("Access-Control-Allow-Origin: https://react-app-stiven.vercel.app");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
