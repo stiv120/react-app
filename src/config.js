@@ -15,9 +15,13 @@ export function getHistorialApiUrl(action) {
   if (USE_INFINITYFREE_API) {
     const base = API_BASE_URL.replace(/\/$/, "");
     if (action === "ver") {
-      return CORS_PROXY_GET + encodeURIComponent(`${base}/api/index.php?action=ver`);
+      return (
+        CORS_PROXY_GET + encodeURIComponent(`${base}/api/index.php?action=ver`)
+      );
     }
     return "/api/infinityfree?action=guardar";
   }
-  return `${API_BASE_URL}/api/historial/${action === "ver" ? "ver" : "guardar"}`;
+  return `${API_BASE_URL}/api/historial/${
+    action === "ver" ? "ver" : "guardar"
+  }`;
 }
