@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL, API_USE_QUERY_PARAMS } from "../config";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -18,7 +18,10 @@ const Historial = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/historial/ver`);
+      const url = API_USE_QUERY_PARAMS
+        ? `${API_BASE_URL}/api/index.php?action=ver`
+        : `${API_BASE_URL}/api/historial/ver`;
+      const response = await axios.get(url);
       console.log(response.data);
       if (Array.isArray(response.data)) {
         setHistorial(response.data);

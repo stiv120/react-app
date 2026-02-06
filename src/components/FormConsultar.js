@@ -2,7 +2,7 @@ import axios from "axios";
 import VerMapa from "./VerMapa";
 import Select from "react-select";
 import { llaveApi } from "../Llaves";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL, API_USE_QUERY_PARAMS } from "../config";
 import debounce from "lodash.debounce";
 import React, { useState, useMemo } from "react";
 
@@ -76,15 +76,14 @@ const FormConsultar = () => {
           iconoClima: datos?.weather ? datos?.weather?.shift() : [],
         });
 
-        const response = await axios.post(
-          `${API_BASE_URL}/api/historial/guardar`,
-          JSON.stringify(datos),
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const guardarUrl = API_USE_QUERY_PARAMS
+          ? `${API_BASE_URL}/api/index.php?action=guardar`
+          : `${API_BASE_URL}/api/historial/guardar`;
+        const response = await axios.post(guardarUrl, JSON.stringify(datos), {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         console.log("Datos guardados en el historial:", response.data);
       } catch (error) {
         console.log("Error al obtener los datos de la API:", error);

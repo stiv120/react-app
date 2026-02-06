@@ -26,18 +26,23 @@ $historial = new Historial($conn);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
+$action = $_GET['action'] ?? '';
+
+// Soporta tanto /api/historial/ver (con .htaccess) como /api/index.php?action=ver (sin mod_rewrite)
+$isVer = (strpos($requestUri, 'historial/ver') !== false) || ($action === 'ver');
+$isGuardar = (strpos($requestUri, 'historial/guardar') !== false) || ($action === 'guardar');
 
 header('Content-Type: application/json');
 
 switch ($method) {
     case "GET":
-        if (strpos($requestUri, 'api/historial/ver') !== false) {
+        if ($isVer) {
             $result = $historial->getAllHistorial();
             echo json_encode($result);
         }
         break;
     case "POST":
-        if (strpos($requestUri, 'api/historial/guardar') !== false) {
+        if ($isGuardar) {
             $historial->insertHistorial();
             echo json_encode(["message" => "Datos guardados con éxito"]);
         }
