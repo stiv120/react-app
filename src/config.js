@@ -1,9 +1,8 @@
 /**
- * URL base de la API.
- * - Vacío = API serverless de Vercel (/api/historial/...)
- * - Con valor = API PHP en InfinityFree (/api/index.php?action=...)
+ * - Sin REACT_APP_API_URL = API serverless de Vercel (/api/historial/...)
+ * - Con REACT_APP_API_URL = se usa proxy en Vercel (/api/infinityfree?action=...) para evitar CORS
  */
 export const API_BASE_URL = process.env.REACT_APP_API_URL || "";
 
-/** URLs de InfinityFree usan index.php?action= porque mod_rewrite puede no estar disponible */
-export const API_USE_QUERY_PARAMS = !!process.env.REACT_APP_API_URL;
+/** Si está set, usamos el proxy /api/infinityfree (mismo origen, sin CORS) */
+export const API_USE_INFINITYFREE_PROXY = !!process.env.REACT_APP_API_URL;

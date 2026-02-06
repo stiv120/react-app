@@ -3,8 +3,10 @@ ob_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// CORS: primeros headers, siempre
-header("Access-Control-Allow-Origin: https://react-app-stiven.vercel.app");
+// CORS: permitir tu app en Vercel (y * para probar si el host no envía el header)
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$allow = ($origin === 'https://react-app-stiven.vercel.app') ? $origin : '*';
+header("Access-Control-Allow-Origin: " . $allow);
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
