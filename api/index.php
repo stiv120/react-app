@@ -2,13 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Configuramos los encabezados CORS
-header("Access-Control-Allow-Origin: https://react-app-stiven.vercel.app"); // Aquí pones el origen de tu app React en Vercel
+// CORS: debe ir antes de cualquier salida
+header("Access-Control-Allow-Origin: https://react-app-stiven.vercel.app");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit;
+    http_response_code(204);
+    exit(0);
 }
 
 include 'DbConnect.php';
@@ -43,8 +44,8 @@ switch ($method) {
         break;
     case "POST":
         if ($isGuardar) {
-            $historial->insertHistorial();
-            echo json_encode(["message" => "Datos guardados con éxito"]);
+            http_response_code(201);
+            $historial->insertHistorial(); // ya envía su propia respuesta JSON
         }
         break;
     default:

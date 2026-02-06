@@ -54,7 +54,7 @@ module.exports = async function handler(req, res) {
     await connection.end();
 
     response = { status: 1, message: "Se ha guardado correctamente." };
-    res.status(200).json(response);
+    res.status(201).json(response);
   } catch (error) {
     console.error("Error en historial/guardar:", error);
     response.message =
