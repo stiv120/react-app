@@ -4,7 +4,7 @@ import Select from "react-select";
 import { llaveApi } from "../Llaves";
 import { API_BASE_URL } from "../config";
 import debounce from "lodash.debounce";
-import React, { useState, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 
 const FormConsultar = () => {
   const [datosApi, setdatosApi] = useState({
@@ -19,33 +19,34 @@ const FormConsultar = () => {
   const [options, setOptions] = useState([]);
 
   // Implementamos debounce para manejar las solicitudes a la API
-  const debouncedFetchCities = useCallback(
-    debounce(async (inputValue) => {
-      if (inputValue.length > 2) {
-        try {
-          const response = await axios.get(
-            "https://api.openweathermap.org/data/2.5/find",
-            {
-              params: {
-                q: inputValue,
-                appid: llaveApi,
-              },
-            }
-          );
+  const debouncedFetchCities = useMemo(
+    () =>
+      debounce(async (inputValue) => {
+        if (inputValue.length > 2) {
+          try {
+            const response = await axios.get(
+              "https://api.openweathermap.org/data/2.5/find",
+              {
+                params: {
+                  q: inputValue,
+                  appid: llaveApi,
+                },
+              }
+            );
 
-          const ciudades = response.data.list.map((ciudad) => ({
-            value: `${ciudad.name},${ciudad.sys.country}`,
-            label: `${ciudad.name}, ${ciudad.sys.country}`,
-          }));
+            const ciudades = response.data.list.map((ciudad) => ({
+              value: `${ciudad.name},${ciudad.sys.country}`,
+              label: `${ciudad.name}, ${ciudad.sys.country}`,
+            }));
 
-          setOptions(ciudades);
-        } catch (error) {
-          console.error("Error fetching cities:", error);
+            setOptions(ciudades);
+          } catch (error) {
+            console.error("Error fetching cities:", error);
+          }
+        } else {
+          setOptions([]);
         }
-      } else {
-        setOptions([]); // Limpiamos las opciones si el input es menor a 3 caracteres
-      }
-    }, 300),
+      }, 300),
     []
   );
 
