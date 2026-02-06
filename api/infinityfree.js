@@ -2,7 +2,8 @@
  * Proxy a la API PHP en InfinityFree.
  * Evita CORS: la app llama a este endpoint (mismo origen) y Vercel reenvía a InfinityFree.
  */
-const BASE = process.env.INFINITYFREE_API_URL || "https://weather-api.infinityfreeapp.com";
+const BASE =
+  process.env.INFINITYFREE_API_URL || "https://weather-api.infinityfreeapp.com";
 
 module.exports = async function handler(req, res) {
   const action = req.query.action;
@@ -21,7 +22,10 @@ module.exports = async function handler(req, res) {
       return;
     }
     if (req.method === "POST") {
-      const body = typeof req.body === "string" ? req.body : JSON.stringify(req.body || {});
+      const body =
+        typeof req.body === "string"
+          ? req.body
+          : JSON.stringify(req.body || {});
       const r = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
