@@ -2,6 +2,7 @@ import axios from "axios";
 import VerMapa from "./VerMapa";
 import Select from "react-select";
 import { llaveApi } from "../Llaves";
+import { API_BASE_URL } from "../config";
 import debounce from "lodash.debounce";
 import React, { useState, useCallback } from "react";
 
@@ -75,7 +76,7 @@ const FormConsultar = () => {
         });
 
         const response = await axios.post(
-          "https://stiv120.infinityfreeapp.com/api/historial/guardar",
+          `${API_BASE_URL}/api/historial/guardar`,
           JSON.stringify(datos),
           {
             headers: {

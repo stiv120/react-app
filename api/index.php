@@ -17,6 +17,11 @@ include 'Historial.php';
 $objDb = new DbConnect();
 $conn = $objDb->connect();
 
+if (!$conn) {
+    http_response_code(500);
+    exit;
+}
+
 $historial = new Historial($conn);
 
 $method = $_SERVER['REQUEST_METHOD'];

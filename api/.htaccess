@@ -1,5 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+    # Envía /api/historial/ver y /api/historial/guardar a index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^historial/(.*)$ index.php [QSA,L]
+</IfModule>
+
 <IfModule mod_headers.c>
-  Header set Access-Control-Allow-Origin "*" Header set
-  Access-Control-Allow-Methods "GET, POST, OPTIONS" Header set
-  Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header set Access-Control-Allow-Origin "https://react-app-stiven.vercel.app"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 </IfModule>
